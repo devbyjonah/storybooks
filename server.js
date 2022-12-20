@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === 'development'){
 // ejs w/ layouts module
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
-app.set('layout', './views/layouts/main')
+app.set('layout', './layouts/main')
 
 // Routes
 app.use('/', require('./routes/index'))
