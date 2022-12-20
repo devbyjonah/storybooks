@@ -1,15 +1,16 @@
+// modules
 const express = require('express')
 const dotenv = require('dotenv')
 const morgan = require('morgan')
 const ejsLayouts = require('express-ejs-layouts')
 const connectDB = require('./config/db')
 
+// intialize environment / DB Connection / App
 dotenv.config({ path: './config/config.env' })
-
 connectDB()
-
 const app = express()
 
+// logging with morgan module
 if (process.env.NODE_ENV === 'development'){
 	app.use(morgan('dev'))
 }
