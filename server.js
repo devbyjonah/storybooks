@@ -31,7 +31,7 @@ app.set('layout', './layouts/main')
 // Session middleware
 app.use(
 	session({
-		secret:'el gato',
+		secret: process.env.SECRET,
 		resave: false,
 		saveUninitialized: false,
 		store: new MongoStore({ mongooseConnection: mongoose.connection })
