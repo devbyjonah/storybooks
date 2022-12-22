@@ -1,11 +1,13 @@
 // modules
 const path = require('path')
 const express = require('express')
+const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const morgan = require('morgan')
 const ejsLayouts = require('express-ejs-layouts')
 const passport = require('passport')
 const session = require('express-session')
+const MongoStore = require('connect-mongo')(session)
 const connectDB = require('./config/db')
 
 // intialize environment / DB Connection / App
@@ -31,7 +33,8 @@ app.use(
 	session({
 		secret:'el gato',
 		resave: false,
-		saveUninitialized: false
+		saveUninitialized: false,
+		store: new MongoStore({ mongooseConnection: mongoose.connection })
 	})
 )
 
