@@ -42,7 +42,7 @@ module.exports = function (passport) {
 
 	passport.deserializeUser((user, cb) => {
   		process.nextTick(() => {
-    		return cb(null, user)
+  			User.findById(user.id, (err, profile) => { return cb(null, profile) })
   		})
 	})
 }
