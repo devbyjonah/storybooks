@@ -1,4 +1,4 @@
-// modules
+// packages
 const path = require('path')
 const express = require('express')
 const mongoose = require('mongoose')
@@ -18,12 +18,12 @@ const app = express()
 // Passport config
 require('./config/passport')(passport)
 
-// logging with morgan module
+// logging with morgan package
 if (process.env.NODE_ENV === 'development'){
 	app.use(morgan('dev'))
 }
 
-// ejs w/ layouts module
+// set view engine to ejs and default layout to main
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 app.set('layout', './layouts/main')
@@ -42,10 +42,10 @@ app.use(
 app.use(passport.initialize())
 app.use(passport.session())
 
-// static folder
+// setup static folder
 app.use(express.static(path.join(__dirname, 'public')))
 
-// Routes
+// direct requests to router files
 app.use('/', require('./routes/index'))
 app.use('/auth', require('./routes/auth'))
 
