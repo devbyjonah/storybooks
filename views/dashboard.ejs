@@ -1,3 +1,27 @@
 <h6>Dashboard</h6>
 <h3>Welcome <%= name %></h3>
 <p>Here are your stories</p>
+<%if (stories.length > 0) {%>
+	<table class="striped">
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Date</th>
+				<th>Status</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<%for (let i = 0; i < stories.length; i++) {%>
+				<tr>
+					<td><a href="/stories/<%= stories[i]._id %>"></a><%= stories[i].title %></td>
+					<td><%= stories[i].createdAt %></td>
+					<td><span class="dash-status"><%= stories[i].status %></span></td>
+					<td></td>
+				</tr>
+			<%}%>
+		</tbody>
+	</table>
+<%} else {%>
+	<p>you have not created any stories</p>
+<%}%>
