@@ -1,0 +1,28 @@
+<h1>Stories</h1>
+<div class="row">
+	<% if (stories.length > 0){ %>
+		<% for(let i = 0; i < stories.length; i++){ %>
+			<div class="col s12 m4">
+				<div class="card">
+					<div class="card-image">
+						<!-- todo edit icon -->
+					</div>
+					<div class="card-content center-align">
+						<h5><%= stories[i].title %></h5>
+						<p><%= stories[i].body %></p>
+						<br>
+						<div class="chip">
+							<img src="<%= stories[i].user.image %>">
+							<a href="/stories/user/<%= stories[i].user._id %>"><%= stories[i].user.displayName %></a>
+						</div>
+					</div>
+					<div class="card-action center-align">
+						<a href="/stories/<% stories[i]._id %>" class="btn grey">Read more</a>
+					</div>
+				</div>
+			</div>
+		<%}%>
+	<%} else {%>
+		<p>no stories to display</p>
+	<%}%>
+</div>

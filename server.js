@@ -32,6 +32,10 @@ app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 app.set('layout', './layouts/main')
 
+// EJS Helpers
+const { formatDate } = require('./helpers/ejs')
+app.locals.formatDate = formatDate
+
 // Session middleware
 app.use(
 	session({
