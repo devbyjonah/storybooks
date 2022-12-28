@@ -33,8 +33,11 @@ app.use(ejsLayouts)
 app.set('layout', './layouts/main')
 
 // EJS Helpers
-const { formatDate } = require('./helpers/ejs')
+const { formatDate, truncate, stripTags, editIcon } = require('./helpers/ejs')
 app.locals.formatDate = formatDate
+app.locals.truncate = truncate
+app.locals.stripTags = stripTags
+app.locals.editIcon = editIcon
 
 // Session middleware
 app.use(
@@ -52,6 +55,12 @@ app.use(passport.session())
 
 // setup static folder
 app.use(express.static(path.join(__dirname, 'public')))
+
+// Set Global Variables
+app.use((req, res, next) => {
+	res.locals.user = req.user || null
+	next()
+})
 
 // direct requests to router files
 app.use('/', require('./routes/index'))

@@ -5,11 +5,11 @@
 			<div class="col s12 m4">
 				<div class="card">
 					<div class="card-image">
-						<!-- todo edit icon -->
+						<%- editIcon(stories[i].user, user, stories[i]._id) %>
 					</div>
 					<div class="card-content center-align">
 						<h5><%= stories[i].title %></h5>
-						<p><%= stories[i].body %></p>
+						<p><%= stripTags(truncate(stories[i].body, 50)) %></p>
 						<br>
 						<div class="chip">
 							<img src="<%= stories[i].user.image %>">
@@ -17,7 +17,7 @@
 						</div>
 					</div>
 					<div class="card-action center-align">
-						<a href="/stories/<% stories[i]._id %>" class="btn grey">Read more</a>
+						<a href="/stories/<%= stories[i]._id %>" class="btn grey">Read more</a>
 					</div>
 				</div>
 			</div>
