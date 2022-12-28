@@ -15,7 +15,7 @@
 			<%for (let i = 0; i < stories.length; i++) {%>
 				<tr>
 					<td><a href="/stories/<%= stories[i]._id %>"></a><%= stories[i].title %></td>
-					<td><%= stories[i].createdAt %></td>
+					<td><%= formatDate(stories[i].createdAt, 'MMMM Do YYYY, h:mm:ss a') %></td>
 					<td><span class="dash-status"><%= stories[i].status %></span></td>
 					<td></td>
 				</tr>
