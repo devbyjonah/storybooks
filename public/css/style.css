@@ -19,3 +19,7 @@ p {
 .options > * {
 	margin-right: 5px;
 }
+
+.img-small {
+	width: 180px;
+}
