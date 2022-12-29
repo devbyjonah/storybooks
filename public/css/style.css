@@ -11,3 +11,11 @@ p {
 .fa-small {
 	font-size:16px !important;
 }
+
+.options {
+	display: flex;
+}
+
+.options > * {
+	margin-right: 5px;
+}
