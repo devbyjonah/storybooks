@@ -12,7 +12,7 @@
 						<p><%= stripTags(truncate(stories[i].body, 50)) %></p>
 						<br>
 						<div class="chip">
-							<img src="<%= stories[i].user.image %>">
+							<img src="<%= stories[i].user.image %>" referrerpolicy="no-referrer">
 							<a href="/stories/user/<%= stories[i].user._id %>"><%= stories[i].user.displayName %></a>
 						</div>
 					</div>
